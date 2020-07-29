@@ -1,0 +1,4 @@
+ - implement the new devices (look for "proposed" in the 'IO_MAP.txt' file).
+
+ - create an 'analyze_arg(...)' function.
+   - make it take an enum to specify type of action.

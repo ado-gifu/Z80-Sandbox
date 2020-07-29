@@ -1,0 +1,77 @@
+MIO addresses
+--------------------------------------------------------------------------------
+MMU ( PROPOSED )
+0x0 - RESERVED
+0x1 - RESERVED
+0x2 - RESERVED
+0x3 - RESERVED
+
+0x4 - RESERVED
+0x5 - RESERVED
+0x6 - RESERVED
+0x7 - RESERVED
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+CONSOLE
+// Console is: 80 columns wide, 24 rows high.
+//
+PORT 0 : 0x8 : Char to write.
+PORT 1 : 0x9 : Ready to write. Any non-zero value at this address will send a character 
+
+PORT 2 : 0xA : Char read.
+PORT 3 : 0xB : Ready to read. Set by a program.
+
+PORT 4 : 0xC : X position (column).
+PORT 5 : 0xD : Y position (row).
+
+PORT 6 : 0xE : Max width (imposed by the console).
+PORT 7 : 0xF : Max height (imposed by the console).
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+// NOTE: I can use a single function to access all of these.
+//       FDD #1 offset: 0x10
+//       FDD #2 offset: 0x18
+//       HDD #3 offset: 0x20
+//
+FDD #1 ( PROPOSED )
+0x10 - RESERVED
+0x11 - RESERVED
+0x12 - RESERVED
+0x13 - RESERVED
+
+0x14 - RESERVED
+0x15 - RESERVED
+0x16 - RESERVED
+0x17 - RESERVED
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+FDD #2 ( PROPOSED )
+0x18 - RESERVED
+0x19 - RESERVED
+0x1A - RESERVED
+0x1B - RESERVED
+
+0x1C - RESERVED
+0x1D - RESERVED
+0x1E - RESERVED
+0x1F - RESERVED
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+HDD #1 ( PROPOSED )
+0x20 - RESERVED
+0x21 - RESERVED
+0x22 - RESERVED
+0x23 - RESERVED
+
+0x24 - RESERVED
+0x25 - RESERVED
+0x26 - RESERVED
+0x27 - RESERVED
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+VIDEO SCREEN REGISTERS
+0x0 - LSB of VRAM address.
+0x1 - MSB of VRAM address.
+
+0x2 - LSB of char number.
+0x3 - MSB of char number.

@@ -1,0 +1,46 @@
+text:    
+    jp start
+
+    helloStr: db " --- WELCOME TO Z80 SANDBOX MACHINE --- ", 0
+
+start:
+    ; Prepare IO ports.
+    ; Write the address of VRAM to appropriate IO addresses.
+
+    ld a, 0x0
+    out (0x00), a  ; Port first, then value from the Accumulator.
+
+    ld a, 0x2
+    out (0x01), a
+
+    ld a, 0x80
+    out (0x02), a
+    
+    ld a, 0x07
+    out (0x03), a
+
+    ; Clear all registers first.
+    ld a,  0  ; Keep 'a' at 0.
+    ld bc, 0  ; Index.
+
+    ; Load all addresses into right registers.
+    ld hl, helloStr  ; Pointer for the string.
+
+loop:
+    ld  hl, helloStr
+    add hl, bc
+    ld  d,  (hl)  ; Get the next char.
+
+    ld hl,   0x200
+    add hl,  bc
+    ld (hl), d  ; Put the character in the destination.
+
+    inc bc
+
+    cp d  ; Compare to 0 at 'a'. If not 0 yet, go back.
+          ; End of string hasn't been reached yet!
+
+    jp nz, loop
+
+end:
+    jp end

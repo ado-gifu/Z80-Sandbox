@@ -1,0 +1,6 @@
+# Remember - a line cannot contain a rule and a comment.
+
+# Ignore all bins.
+*bin/*
+*obj/*
+*src_z80/*
